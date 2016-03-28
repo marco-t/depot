@@ -1,6 +1,9 @@
 class Product < ActiveRecord::Base
   validates :title, :description, :image_url, presence: true
-  validates :title, uniqueness: true
+  validates :title, uniqueness: true, length: { 
+    minimum: 10,
+    message: 'must be at least 10 characters.'
+  }
   # the allow_blank option is to avoid sending multiple error messages when blank.
   validates :image_url, allow_blank: true, format: {
     with:     %r{\.(gif|jpg|png)\Z}i,
