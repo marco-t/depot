@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :orders
   # as: 'store' creates a store_path accessor method.
   root 'store#index', as: 'store'
   
